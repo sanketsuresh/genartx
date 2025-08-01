@@ -14,12 +14,10 @@ cloudinary.config({
 // Get all posts
 export const getAllPosts = async (req, res, next) => {
   try {
-    console.log("Fetching all posts...");
     const posts = await Post.find({});
-    console.log("Posts fetched:", posts); // Log fetched posts
-    return res.status(200).json({ success: true, data: posts }); // Ensure the response structure matches the client expectation
+    return res.status(200).json({ success: true, data: posts });
   } catch (error) {
-    console.error("Error fetching posts:", error); // Log error details
+    console.error("Error fetching posts:", error);
     next(
       createError(
         error.status || 500,
@@ -32,17 +30,15 @@ export const getAllPosts = async (req, res, next) => {
 // Create Post
 export const createPost = async (req, res, next) => {
   try {
-    console.log("Creating a new post:", req.body);
     const { name, prompt, photo } = req.body;
     const photoUrl = await cloudinary.uploader.upload(photo, {
-      folder: "GenArtX", // Optional: Specify a folder in Cloudinary
+      folder: "GenArtX",
     });
     const newPost = await Post.create({
       name,
       prompt,
       photo: photoUrl?.secure_url,
     });
-    console.log("Post created:", newPost);
     return res.status(201).json({ success: true, data: newPost });
   } catch (error) {
     console.error("Error creating post:", error);

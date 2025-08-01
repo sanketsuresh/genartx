@@ -71,8 +71,6 @@ const Placeholder = styled.div`
 const ImageCard = ({ item }) => {
   const [isLoaded, setIsLoaded] = useState(false);
 
-  console.log("ImageCard item:", item); // Debugging log
-
   return (
     <LazyLoad height={200} offset={100} once>
       <Card>

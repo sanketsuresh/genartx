@@ -75,15 +75,10 @@ const Home = () => {
     const fetchPosts = async () => {
       setLoading(true);
       try {
-        const postsData = await GetPosts(); // Updated to match the new API response
-        console.log("Posts Data:", postsData); // Log the posts array
-        setPosts(postsData.reverse() || []); // Ensure posts is an array
+        const postsData = await GetPosts();
+        setPosts(postsData.reverse() || []);
       } catch (err) {
-        console.error("Error fetching posts:", {
-          message: err.message,
-          response: err.response?.data,
-          status: err.response?.status,
-        }); // Log detailed error information
+        console.error("Error fetching posts:", err.message);
         setError(err?.response?.data?.message || "Failed to fetch posts.");
       } finally {
         setLoading(false);
