@@ -1,6 +1,7 @@
 {
   "name": "genartx-server",
   "version": "1.0.0",
+  "type": "module",
   "description": "Backend server for GenArtX AI image generation platform",
   "main": "index.js",
   "scripts": {
