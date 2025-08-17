@@ -1,3 +1,7 @@
+live link:https://genartx-main-i6k1wow7w-sankets-projects-531ed2df.vercel.app/
+
+
+
 # GenArtX
 
 GenArtX is a full-stack web application that allows users to generate AI-powered images based on prompts and share them with the community. The project leverages OpenAI's API for image generation, Cloudinary for image storage, and MongoDB for managing posts.
